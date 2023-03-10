@@ -1,0 +1,17 @@
+services:
+  kamigaroku-app:
+    build:
+      context: .
+      dockerfile: dockerfile
+    volumes:
+      - type: bind
+        source: "./kamigaroku"
+        target: "/app/kamigaroku"
+    ports:
+      - "8080:80"
+    restart: always
+    container_name: kamigaroku_server
+    hostname: kamigaroku_server
+    tty: true
+    stdin_open: true
+    working_dir: /app/kamigaroku
